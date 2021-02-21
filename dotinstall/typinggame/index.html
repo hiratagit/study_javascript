@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <p id="target">click to start</p>
+    <p class="info">
+        Letter count: <span id="score" class="score">0</span>,
+        Miss count: <span id="miss" class="miss">0</span>,
+        Time left: <span id="timer">0.00</span>
+    </p>
+
+    <div class="resultbox">
+        <p id="result">結果：
+            正解 <span id="result_score">0</span>
+            不正解 <span id="result_miss">0</span>
+            正解率 <span id="result_accuracy">0</span>%
+        </p>
+    </div>
+
+
+    <script src="main.js"></script>
+</body>
+</html>

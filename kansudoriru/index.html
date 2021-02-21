@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>関数ドリル</title>
+    <style>
+        .message {
+            padding: 25px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<style>
+
+.notification{
+    position : absolute;
+    top: 0px;
+    right: 0px;
+    width: 100px;
+    border: 1px solid red;
+    margin: 0;
+}
+</style>
+<body>
+
+    <h1>こんにちは</h1>
+
+    <!-- <div id="main">
+        <ul class="ul">
+            <li>青</li>
+            <li>赤</li>
+            <li>黄</li>
+            <li>緑</li>
+            <li>黒</li>
+        </ul>
+    </div> -->
+    <!-- <img id="testImg" src="./img/imgtest.jSpg" alt="架空の画像でござる" width="200px" height="200px"> -->
+
+    <ul id="list"></ul>
+
+    <form action="" method="get">
+        <p><label>お名前：<input type="text" name="name" placeholder="ここに名前" required></label></p>
+        <p id="text"></p>
+        <p><label>パスワード：<input type="password"></label></p>
+        <!-- <p>
+            <label>ラーメン<input type="radio" name="food" value="ラーメン"></label>
+            <label>パスタ<input type="radio" name="food" value="パスタ"></label>
+            <label>焼きそば<input type="radio" name="food" value="焼きそば"></label>
+        </p> -->
+        <p>
+            <select name="birth" id="sel">
+                <option value="5月">5月</option>
+                <option value="6月">6月</option>
+                <option value="7月">7月</option>
+                <option value="8月">8月</option>
+                <option value="9月">9月</option>
+       　　 </select>
+    　　</p>
+
+        <p>サイト名：<input type="text" name="urlName"></p>
+        <P>URL：<input type="url" name="url" size="50"></P>
+
+        <input id="btn" type="button" value="追加">
+
+        <input type="submit" value="送信">
+        <div class="list"></div>
+
+        <div>
+            好きな食べ物は？
+            <label><input type="checkbox" name="food" value="ラーメン">ラーメン</label>
+            <label><input type="checkbox" name="food" value="餃子">餃子</label>
+            <label><input type="checkbox" name="food" value="焼肉">焼肉</label>
+        </div>
+        <input type="button" id="bttn" value="決定"> 
+    </form>
+
+
+
+    <script>
+
+        window.addEventListener('DOMContentLoaded', () => {
+
+            // const food = document.querySelectorAll('input[name="food"]');
+            const food = document.getElementsByName('food');
+            console.log(food)
+            
+            const bttn = document.getElementById('bttn');
+            bttn.addEventListener('click', () => {
+                for(let i = 0; i < food.length; i++) {
+
+                    if(['餃子','焼肉'].indexOf(food[i].value) > -1) {
+                        food[i].checked = true;
+                    }
+                }
+            }, false);
+        }, false);
+
+    </script>
+    
+    <!-- <script src="saikikansu.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/underscore@1.12.0/underscore-min.js"></script>
+    <script src="test2.js"></script>
+</body>
+</html>

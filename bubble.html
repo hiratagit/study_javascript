@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubbles</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    div.container{
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all .5s;
+    }
+
+    div.container.bubble-active{
+        background: #111;
+    }
+    
+    section {
+
+    }
+
+    section h2 {
+        font-size: 10em;
+        color: #333;
+    }
+
+    .button-wrapp{
+        max-width: 250px;
+        margin: 0 auto ;
+    }
+
+    .button-wrapp button{
+        width: 100%;
+        background: #fff;
+        padding: .5em;
+        font-size: 20px;
+        font-weight: bold;
+        border: 2px solid red;
+        border-radius: 10px;
+        cursor: pointer;
+        outline: none;
+        transition: all .5s;
+    }
+
+    .button-wrapp button:hover{
+        background: red;
+        color: #fff;
+        opacity: 0.8;
+    }
+
+    .button-wrapp button:active{
+        background:#ffff;
+        color: #333;
+    }
+
+
+    .container span {
+        position: absolute;
+        bottom: -50px;
+        background: transparent;
+        border-radius: 50%;
+        pointer-events: none;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        animation: animate 2s linear infinite;
+    }
+
+    .container span:before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform: scale(0.25) translate(-70%, -70%);
+        background: radial-gradient(#fff, transparent);
+        border-radius: 50%;
+    }
+
+    @keyframes animate {
+        0% {
+            transform: translateY(0%);
+            opacity: 1.0;
+        }
+
+        60% {
+            opacity: 1.0;
+        }
+
+        100% {
+            transform: translateY(-1200%);
+            opacity: 0;
+        }
+    }
+</style>
+
+<body>
+    <div class="container">
+        <section>
+            <h2>Bubbles</h2>
+            <div class="button-wrapp"><button id="bubble_start">Fire!</button></div>
+            <div class="button-wrapp" style="margin-top: 1em;"><button id="bubble_stop">Stop!</button></div>
+        </section>
+    </div>
+    <script>
+        
+        const bubbleStart = document.getElementById('bubble_start');
+        const bubbleStop = document.getElementById('bubble_stop');
+        const container = document.getElementsByClassName('container');
+
+        bubbleStart.addEventListener('click', function(){
+            container[0].classList.add('bubble-active');
+            setInterval(createBublle, 25);
+        })
+
+        function createBublle() {
+            const createElement = document.createElement('span');
+            let size = Math.random() * 100;
+            createElement.style.width = size + "px";
+            createElement.style.height = size + "px";
+            createElement.style.left = Math.random() * innerWidth + "px";
+
+            container[0].appendChild(createElement);
+
+            setTimeout(function () {
+                createElement.remove();
+            }, 4000)
+        }
+
+        bubbleStop.addEventListener('click', function(){
+            container[0].classList.remove('bubble-active');
+        });
+       
+
+    </script>
+</body>
+
+</html>

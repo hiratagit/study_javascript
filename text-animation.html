@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>関数ドリル</title>
+    <style>
+        .message {
+            padding: 25px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<style>
+
+</style>
+<body>
+    <textarea id="textExample" cols="60" rows="5">むかし、むかし、あるところに、おじいさんとおばさんが住んでいました。おじいさんは山へしばかりに、おばあさんは川へせんたくに行きました。おばあさんが川でせんたくをしていると、ドンブラコ、ドンブラコと、大きな桃が流れてきました。
+    </textarea>
+
+
+
+    <script>
+
+        const textArea = document.getElementById("textExample");
+
+        animateText(textArea);
+
+        function animateText(textArea) {
+            const text = textArea.value;
+
+            animate({
+                duration: 2500,
+                timingFunc: (timeFraction) => timeFraction,
+                draw:function(progress) {
+                    const nbToDisplay = (text.length) * (progress);
+                    textArea.value = text.substr(0, Math.ceil(nbToDisplay));
+                }
+
+            })
+        }
+
+        function animate( {timingFunc, draw, duration} ) {
+            let start = performance.now();
+
+            requestAnimationFrame(function animate(time) {
+                let timeFraction = (time -start)/duration;
+                if(timeFraction > 1) {
+                    timeFraction = 1;
+                }
+
+                let progress = timingFunc(timeFraction);
+                draw(progress);
+
+                if(timeFraction < 1) {
+                    requestAnimationFrame(animate);
+                }
+            })
+        }
+    
+
+
+    </script>
+    
+    <!-- <script src="saikikansu.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/underscore@1.12.0/underscore-min.js"></script>
+    <script src="test.js"></script>
+</body>
+</html>

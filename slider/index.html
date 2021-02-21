@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *, *::after, *::before {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+            vertical-align: bottom;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .slider-wrapp {
+            margin: 0 auto;
+            width: 100%;
+            background-color: #333;
+
+        }
+
+        #slider {
+            max-width: 450px;
+            margin: 0 auto;
+            /* border: 2px solid white; */
+            overflow: hidden;
+        }
+
+        #slider ul  {
+            display: flex;
+            width: 100%;
+            flex-wrap:nowrap;
+        }
+
+        #slider ul li {
+            flex-shrink:0;
+            flex-basis:100%;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>カルーセルスライダー</h1>
+
+     <div class="slider-wrapp">
+         <div id="slider">
+            <ul>
+                <li><img src="./img/about_slider05.jpg"  id="lastClone" class="slider-image" alt="スライダー画像5"></li>
+                <li><img src="./img/about_slider01.jpg"  class="slider-image" alt="スライダー画像1"></li>
+                <li><img src="./img/about_slider02.jpg"  class="slider-image" alt="スライダー画像2"></li>
+                <li><img src="./img/about_slider03.jpg"  class="slider-image" alt="スライダー画像3"></li>
+                <li><img src="./img/about_slider04.jpg"  class="slider-image" alt="スライダー画像4"></li>
+                <li><img src="./img/about_slider05.jpg"  class="slider-image" alt="スライダー画像5"></li>
+                <li><img src="./img/about_slider01.jpg"  class="slider-image" id="firstClone" alt="スライダー画像1"></li>
+            </ul>
+         </div>
+     </div>
+
+     <button id="prevBtn">Prev</button>
+     <button id="nextBtn">Next</button>
+    
+    <script src="slider.js"></script>
+</body>
+</html>

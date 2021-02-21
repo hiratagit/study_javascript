@@ -1,0 +1,94 @@
+
+.flash {
+    animation : kf-flash 2s ease infinite;
+}
+
+@keyframes kf-flash {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.opening-anime {
+
+    max-width: 300px;
+    height: 150px;
+    margin: 0 auto;
+    position: relative;
+
+    &__parts{
+        
+        height: auto;
+        position: absolute;
+        top: 0;
+        opacity: 0;
+    }
+
+    &__parts__left {
+        width: 110px;
+        left: 0   
+    }
+
+    &__parts__right {
+        width: 100px;
+        right: 0;
+    }
+}
+
+.speech {
+    opacity: 0;
+    transition: opacity .75s linear;
+
+    &.speech-start {
+        opacity: 1;
+    }
+}
+
+.anime-start{
+    .opening-anime{
+    
+        &__parts__left {
+            animation: kf-opening-anime-left 1s ease-in-out forwards;
+        }
+    
+        &__parts__right {
+            animation: kf-opening-anime-right 1s ease-in-out forwards;
+        }
+    }
+}
+
+@keyframes kf-opening-anime-left {
+    0% {
+        opacity: 0;
+        transform: translateX(0px);
+    }
+
+    30% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(200px);
+    }
+}
+
+@keyframes kf-opening-anime-right {
+    0% {
+        opacity: 0;
+        transform: translateX(0px);
+    }
+
+    30% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(-200px);
+    }
+}

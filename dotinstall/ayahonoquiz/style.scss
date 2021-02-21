@@ -1,0 +1,171 @@
+@import "styles/_animation.scss";
+
+img {
+    display: block;
+    max-width: 100%;
+    margin: 0;
+}
+
+.h1 {
+    text-align: center;
+    line-height: 1.35;
+    margin: 1em auto;
+    font-size: 25px;
+    color: #f54747;
+}
+
+.btn {
+    cursor: pointer;
+    position: relative;;
+    z-index: 2;
+    width: 250px;
+    height: 70px;
+    background: #3498db;
+    box-shadow: 0 4px 0 #2880b9;
+    border-radius: 18px;
+    line-height: 70px;
+    text-align: center;
+    color: #fff;
+    user-select: none;
+    margin: 2em auto;
+    transition: opacity .5s;
+
+    a {
+        display: block;
+        width: 100%;
+        text-decoration: none;
+        font-weight: bold;
+        color: #fff;
+    }
+
+    &:hover {
+        opacity: .75; 
+    }
+}
+
+body {
+    font-family: Verdana, sans-serif;
+    background-color: #efdec1;
+    font-size: 20px;
+}
+
+.body-inner {
+    padding: 1em;
+}
+
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 25px 15px;
+    position : relative;
+}
+
+#question {
+    margin-bottom: 25px;
+    font-weight: bold;
+    background-color: #d1dd29;
+    padding: 1em;
+    color: red;
+    text-shadow: 1px 1px 2px #fefefe;
+    letter-spacing: .05em;
+}
+
+#choices {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 50px;
+
+    & > li {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 25px 10px;
+        margin-bottom: 20px;
+        cursor: pointer;
+        transition: background-color .5s;
+        letter-spacing: .05em;
+    }
+
+    & > li:hover {
+        background-color: #f8f8f8;
+    }
+
+    & > li.correct {
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+        color: #155724;
+        font-weight: bold;
+    }
+
+    & > li.correct::after {
+        content: '...せいかい！！';
+    }
+    
+    & > li.wrong::after {
+        content: '...ざんねん・・';
+    }
+
+    & > li.wrong {
+        background-color: #f8d8da;
+        border-color: #f5c6cb;
+        color: #721c24;
+        font-weight: bold;
+    }
+    
+}
+
+#btn, #result > a {
+    background-color: #3498db;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 4px 0 #2880b9;
+}
+
+#btn.disabled {
+    background-color: #ccc;
+    box-shadow: 0 4px 0 #bbb;
+    opacity: 0.75;
+}
+
+#result {
+    position : absolute;
+    width: 300px;
+    background-color: #b0ffd2;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    top: 50px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    border-radius: 4px;
+    text-align: center;
+    transition: transform .4s;
+
+    &.perfect {
+        background-color: #ff0058;
+
+        & > p {
+            color: #fff;
+            font-weight: bold;
+        }
+    }
+
+    &.hidden {
+        transform : translateY(-500px);
+     }
+     
+     & > p {
+        font-size: 22px;
+        margin-bottom: 1em;
+    }
+
+    & > a {
+        display: block;
+        text-decoration: none;
+        outline: none;
+    }
+}

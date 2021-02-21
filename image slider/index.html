@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    h2 {
+        text-align: center;
+        margin: 2em 0 0 0;
+    }
+
+    /* img {
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+    } */
+
+    .carousel-container {
+        width: 78%;
+        max-width: 600px;
+        margin: auto;
+        border: 5px solid black;
+        overflow: hidden;
+    }
+
+    .carousel-slider {
+        display: flex;
+        width: 100%;
+        height: auto;
+        
+    }
+</style>
+<body>
+    <h2>Image Slider</h2>
+
+    <div class="carousel-container">
+        <div class="carousel-slider">
+            <img src="./img/3160577_s.jpg" id="lastClone" alt="">
+            <img src="./img/3539899_s.jpg" alt="">
+            <img src="./img/3561986_s.jpg" alt="">
+            <img src="./img/579550_s.jpg" alt="">
+            <img src="./img/629959_s.jpg" alt="">
+            <img src="./img/3160577_s.jpg" alt="">
+            <img src="./img/3539899_s.jpg" id="firstClone" alt="">
+        </div>
+    </div>
+
+    <button id="prevBtn">Prev</button>
+    <button id="nextBtn">Next</button>
+
+
+    <script src="./main.js"></script>
+</body>
+</html>
