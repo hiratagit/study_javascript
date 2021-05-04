@@ -20,7 +20,6 @@
 
     const target = document.getElementById('target');
 
-
     document.addEventListener('click', () => {
         if(isPlaying === true) {
             return;
@@ -29,7 +28,7 @@
         isPlaying = true;
         startTime = Date.now();
         setWord();
-    })
+    });
 
     document.addEventListener('keydown', function(e) {
         if(e.key !== word[loc]){
